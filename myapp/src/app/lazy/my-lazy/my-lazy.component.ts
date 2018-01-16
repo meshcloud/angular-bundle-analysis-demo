@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-// tslint:disable-next-line:import-blacklist
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/pairwise';
+import 'rxjs/add/operator/take';
 
 @Component({
   selector: 'app-my-lazy',
