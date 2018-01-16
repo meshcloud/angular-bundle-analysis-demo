@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "wba": "webpack-bundle-analyzer dist/stats.json",
-    "sme": "source-map-explorer"
+    "sme": "source-map-explorer",
+    "ls": "ls -lh dist/*.js"
   },
   "private": true,
   "dependencies": {
