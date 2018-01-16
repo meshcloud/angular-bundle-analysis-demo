@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --stats-json --sourcemaps --prod --output-hashing=none",
+    "build": "ng build --stats-json --sourcemaps --prod --output-hashing=none --named-chunks",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
