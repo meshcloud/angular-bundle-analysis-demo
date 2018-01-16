@@ -35,7 +35,7 @@ yarn build && yarn sme ./dist/$bundle.js
 
 The sample application in this repository shows a few interesting bits of bundling results. For each variant, there's a `build/*` branch that allows you to quickly check out a pre-built dist folder. 
 
-The branches are: 
+The branches build upon each other. They are: 
 
 ### build/plain
 A basic angular cli application skeleton generated using `ng new`.
@@ -66,15 +66,21 @@ Things to explore:
 - how JS modules affects ng-cli's/webpack's ability to tree-shake the application
 
 ### build/bootstrap-coarse-import
-This branch impors the popular [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap) library using an import on `NgbModule.forRoot()`.
+This branch imports the popular [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap) library using an import on `NgbModule.forRoot()`.
 
 Things to explore: 
 - grown bundle size even though no ng-bootsrap component is actually used
 - how angular module imports affect ng-cli's/webpack's ability to tree-shake the application
 
 ### build/fine-grained-ngb
-This branch impors the popular [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap) library using its individual feature modules. As a result, only used features of ng-bootstrap end up in the application. However, this approach requires more manual work to select the right imports.
+This branch imports ng-bootstrap using its individual feature modules. As a result, only used features of ng-bootstrap end up in the application. However, this approach requires more manual work to select the right imports.
 
 Things to explore:
 - reduced bundle size compared to branch `build/bootstrap-coarse-import`
 
+### build/fine-grained-ngb-unused-directive
+This branch shows what happens when we remove the usage of the `ngbTooltip` directive from our lazy feature module. 
+
+Things to explore:
+- reduced bundle size compared to branch `build/fine-grained-ngb`
+- the different tree-shakeable and non-shakeable parts of a NgModule (For example, services are not tree-shaken, directives can be and components can be tree-shaken)
